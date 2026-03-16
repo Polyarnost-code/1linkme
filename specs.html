@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Specification - 1 Link Me</title>
+    <meta
+      name="description"
+      content="Planning questions and product details for 1 Link Me."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="site-header">
+        <a href="index.html" class="logo-link">
+          <img class="logo" src="logo.png" alt="1 Link Me logo" />
+        </a>
+        <div class="header-text">
+          <h1>1 Link Me</h1>
+          <h2>Planning Questions</h2>
+        </div>
+      </header>
+
+      <section class="card">
+        <h1>Planning Questions</h1>
+        <p class="subhead">Answer these to shape the product and site.</p>
+
+        <h2>1) What problem does 1 Link Me solve?</h2>
+        <p>
+          People often want to share many links at once. 1 Link Me combines them into a single
+          shareable link.
+        </p>
+
+        <h2>2) How does the “one link” work today?</h2>
+        <p>
+          The single link contains your list of links inside it. When someone opens that link,
+          the page reads the data and shows the list. This means there is no server needed right now.
+        </p>
+
+        <h2>3) Do we store the user’s links somewhere?</h2>
+        <p>
+          Right now, the links are not stored on a server. They live inside the shareable URL itself.
+          If you lose the URL, there is no way to recover the list. This is simple and private, but
+          it does not allow long-term storage unless the user saves the URL.
+        </p>
+
+        <h2>4) Should we store links for the future?</h2>
+        <p>
+          This is a product decision. Storing links on a server makes it easy for users to retrieve
+          their lists later and allows features like analytics or editing, but it requires a backend,
+          a database, and a privacy policy that covers stored data.
+        </p>
+
+        <h2>5) What is the maximum number of links?</h2>
+        <p>
+          Free users can add up to 10 links. A future paid plan can allow more than 10.
+        </p>
+
+        <h2>6) What happens when someone opens a shared link?</h2>
+        <p>
+          They see a clean list of the links and can click each one. There is an "Edit these links"
+          button that returns to the builder.
+        </p>
+
+        <h2>7) Is there any sign-in?</h2>
+        <p>No, the current version has no accounts.</p>
+
+        <h2>8) Can we add ads?</h2>
+        <p>
+          Yes, but ad platforms typically require compliance pages (Privacy Policy / Terms)
+          and may require user consent banners for some regions.
+        </p>
+
+        <h2>9) Future ideas (optional)</h2>
+        <p>
+          Custom short domains (like 1linkme.co), link analytics, user accounts, custom link previews,
+          and saved link collections.
+        </p>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+      <p class="footer-note">Created by 5nines.ai</p>
+    </footer>
+  </body>
+</html>

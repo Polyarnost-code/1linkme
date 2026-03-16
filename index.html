@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1 Link Me</title>
+    <meta
+      name="description"
+      content="1 Link Me lets you merge up to 10 links into one shareable link. No login, no costs, and it works forever if you save the URL."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="1 Link Me" />
+    <meta
+      property="og:description"
+      content="Merge up to 10 links into one shareable link. No login, no costs, and it works forever if you save the URL."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="1 Link Me" />
+    <meta
+      name="twitter:description"
+      content="Merge up to 10 links into one shareable link. No login, no costs, and it works forever if you save the URL."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="site-header">
+        <a href="index.html" class="logo-link">
+          <img class="logo" src="logo.png" alt="1 Link Me logo" />
+        </a>
+        <div class="header-text">
+          <h1>1 Link Me</h1>
+          <h2>Turn up to 10 links into one shareable link</h2>
+        </div>
+      </header>
+      <header class="hero">
+        <p class="subhead">
+          <span>Paste your links, click convert, and share a single URL.</span>
+          <span>Works forever — no login, no costs.</span>
+          <span class="warning">Note: lost links can’t be recovered.</span>
+        </p>
+      </header>
+
+      <section id="builder" class="card">
+        <div class="card-header">
+          <h2>Your links</h2>
+          <span class="limit">0 / 10</span>
+        </div>
+        <div id="links" class="links"></div>
+        <button id="add" class="btn ghost add-link" type="button">Add another link</button>
+        <div class="comment-header">
+          <label class="comment-label" for="comment">Comments (optional)</label>
+          <span id="comment-count" class="comment-count">50 characters left</span>
+        </div>
+        <textarea id="comment" class="comment-input" maxlength="50" placeholder="Add a short note (up to 50 characters)"></textarea>
+        <div class="actions">
+          <button id="convert" class="btn primary" type="button">Convert to one link</button>
+        </div>
+        <p class="helper">Only http(s) links are accepted.</p>
+      </section>
+
+      <section id="result" class="card hidden">
+        <div class="card-header">
+          <h2>Your shareable link</h2>
+        </div>
+        <div class="result-row">
+          <input id="output" type="text" readonly />
+          <button id="copy" class="btn primary" type="button">Copy</button>
+        </div>
+        <p class="helper result-helper">
+          <span id="result-message"></span>
+          <a id="open-link" class="open-link" href="#" target="_blank" rel="noopener noreferrer">Open the link in a new window</a>
+        </p>
+      </section>
+
+      <section id="viewer" class="card hidden">
+        <div class="card-header">
+          <h2>Shared links</h2>
+        </div>
+        <ol id="shared-list" class="shared-list"></ol>
+        <a class="btn primary viewer-cta" href="index.html">Merge your own links into one sharable link</a>
+        <p class="subhead viewer-note">
+          <span>Paste your links, click convert, and share a single URL.</span>
+          <span>Works forever — no login, no costs.</span>
+          <span class="warning">Note: lost links can’t be recovered.</span>
+        </p>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+      <p class="footer-note">Created by 5nines.ai</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
