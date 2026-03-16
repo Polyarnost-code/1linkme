@@ -10,6 +10,7 @@ const copyButton = document.getElementById("copy");
 const resultMessage = document.getElementById("result-message");
 const openLink = document.getElementById("open-link");
 const viewerSection = document.getElementById("viewer");
+const viewerCtaSection = document.getElementById("viewer-cta");
 const sharedList = document.getElementById("shared-list");
 const commentInput = document.getElementById("comment");
 const commentCount = document.getElementById("comment-count");
@@ -555,6 +556,7 @@ function initFromHash() {
     showViewer(decoded.links, decoded.comment);
     document.getElementById("builder").classList.add("hidden");
     resultSection.classList.add("hidden");
+    if (viewerCtaSection) viewerCtaSection.classList.remove("hidden");
   } catch (error) {
     // If the hash is invalid, ignore it.
   }
