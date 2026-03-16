@@ -1,4 +1,4 @@
-const MAX_LINKS = 10;
+const MAX_LINKS = 8;
 
 const linksContainer = document.getElementById("links");
 const addButton = document.getElementById("add");
