@@ -274,27 +274,45 @@ input[type="text"]:focus {
 
 .footer {
   margin-top: 40px;
-  padding: 24px 20px 40px;
-  display: grid;
-  gap: 10px;
-  justify-items: center;
-  color: var(--muted);
+  padding: 16px 20px 28px;
+  border-top: 1px solid var(--border);
+  background: #fffdf9;
+  color: #6b7280;
 }
 
-.footer-links {
+.footer-inner {
   display: flex;
-  gap: 18px;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
 }
 
 .footer a {
-  color: var(--ink);
+  color: #6b7280;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 13px;
+}
+
+.footer a:hover {
+  color: var(--ink);
 }
 
 .footer-note {
   margin: 0;
   font-size: 13px;
+  color: #6b7280;
+}
+
+.footer-year {
+  font-size: 13px;
+}
+
+.footer-logo {
+  width: 22px;
+  height: auto;
+  display: inline-block;
 }
 
 .hidden {
