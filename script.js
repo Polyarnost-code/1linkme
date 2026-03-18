@@ -13,6 +13,8 @@ const viewerSection = document.getElementById("viewer");
 const viewerCtaSection = document.getElementById("viewer-cta");
 const sharedList = document.getElementById("shared-list");
 const commentInput = document.getElementById("comment");
+const heroMessage = document.getElementById("hero-message");
+const heroMessageDefault = heroMessage ? heroMessage.innerHTML : "";
 const commentCount = document.getElementById("comment-count");
 
 // Lightweight LZ-based compression to keep share links as short as possible.
@@ -546,6 +548,9 @@ function initFromHash() {
   resetBuilder();
   const hash = window.location.hash.slice(1);
   if (!hash) {
+    if (heroMessage && heroMessageDefault) {
+      heroMessage.innerHTML = heroMessageDefault;
+    }
     return;
   }
   try {
@@ -557,6 +562,9 @@ function initFromHash() {
     document.getElementById("builder").classList.add("hidden");
     resultSection.classList.add("hidden");
     if (viewerCtaSection) viewerCtaSection.classList.remove("hidden");
+    if (heroMessage) {
+      heroMessage.textContent = "Somebody shared some links with you";
+    }
   } catch (error) {
     // If the hash is invalid, ignore it.
   }
