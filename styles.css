@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+
 :root {
   color-scheme: light;
   --bg: #f6f2eb;
@@ -8,6 +10,10 @@
   --accent-dark: #e8613f;
   --border: #e4dccf;
   font-family: "Space Grotesk", "Avenir", "Helvetica Neue", sans-serif;
+}
+
+html[lang="uk"] body {
+  font-family: "Montserrat", "Avenir", "Helvetica Neue", sans-serif;
 }
 
 * {
@@ -125,6 +131,11 @@ h2 {
   text-decoration-thickness: 3px;
   text-underline-offset: 4px;
   font-weight: 600;
+}
+
+.brand-highlight {
+  color: var(--accent);
+  font-weight: 700;
 }
 
 .card {
