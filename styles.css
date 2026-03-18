@@ -33,6 +33,13 @@ body {
   gap: 12px;
 }
 
+.hero-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 16px;
+}
+
 .site-header {
   display: flex;
   align-items: center;
@@ -53,6 +60,35 @@ body {
 .header-text {
   display: grid;
   gap: 6px;
+}
+
+.lang-toggle {
+  padding: 8px 14px;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: #1d4ed8;
+}
+
+.lang-toggle.ua {
+  border: 2px solid #facc15;
+}
+
+.lang-toggle.en {
+  border: 2px solid #ef4444;
+}
+
+.lang-toggle .flag {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.lang-row {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
 }
 
 .eyebrow {
