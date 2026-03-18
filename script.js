@@ -16,6 +16,138 @@ const commentInput = document.getElementById("comment");
 const heroMessage = document.getElementById("hero-message");
 const heroMessageDefault = heroMessage ? heroMessage.innerHTML : "";
 const commentCount = document.getElementById("comment-count");
+const langToggle = document.getElementById("lang-toggle");
+
+const translations = {
+  en: {
+    metaTitle: "1 Link Me – Combine Multiple Links Into One URL (Free, No Login)",
+    metaDescription:
+      "Turn up to 8 links into one shareable link. No sign-up, no storage, 100% free. Perfect for creators, marketers, and everyday sharing.",
+    heroTitle: "Turn up to 8 links into one shareable link",
+    heroLine1: "Paste your links, click convert, and share a single URL.",
+    heroLine2: "Works forever — no login, no costs.",
+    heroLine3: "Note: lost links can’t be recovered.",
+    linksTitle: "Your links",
+    addLink: "Add another link",
+    commentLabel: "Comments (optional)",
+    commentPlaceholder: "Add a short note (up to 50 characters)",
+    convert: "Convert to one link",
+    helper: "Only http(s) links are accepted.",
+    shareableTitle: "Your shareable link",
+    copy: "Copy",
+    openLink: "Open the link in a new window",
+    sharedTitle: "Shared links",
+    viewerCta: "Merge your own links into one sharable link",
+    shareMessage: "Share this link to let anyone see your list.",
+    sharedHero: "Somebody shared some links with you",
+    terms: "Terms",
+    privacy: "Privacy",
+    about: "About",
+    emptyError: "Please add at least one link before converting.",
+    invalidError: "These links are invalid:",
+    copied: "Copied",
+    charsLeft: (n) => `${n} characters left`,
+    langButton: "UA",
+  },
+  uk: {
+    metaTitle: "1 Link Me – Об’єднайте кілька посилань в одне (безкоштовно, без реєстрації)",
+    metaDescription:
+      "Об’єднайте до 8 посилань в одне зручне для поширення. Без реєстрації, без збереження даних, 100% безкоштовно. Ідеально для креаторів, маркетологів і щоденного використання.",
+    heroTitle: "Обʼєднайте до 8 посилань в одне",
+    heroLine1: "Вставте посилання, натисніть «Конвертувати» та поділіться одним URL.",
+    heroLine2: "Працює завжди — без входу та без оплати.",
+    heroLine3: "Увага: втрачені посилання відновити неможливо.",
+    linksTitle: "Ваші посилання",
+    addLink: "Додати ще посилання",
+    commentLabel: "Коментар (необов’язково)",
+    commentPlaceholder: "Додайте коротку нотатку (до 50 символів)",
+    convert: "Конвертувати в одне посилання",
+    helper: "Підтримуються лише http(s) посилання.",
+    shareableTitle: "Ваше спільне посилання",
+    copy: "Скопіювати",
+    openLink: "Відкрити посилання у новому вікні",
+    sharedTitle: "Спільні посилання",
+    viewerCta: "Обʼєднайте свої посилання в одне",
+    shareMessage: "Поділіться цим посиланням, щоб показати список.",
+    sharedHero: "Хтось поділився з вами посиланнями",
+    terms: "Умови",
+    privacy: "Приватність",
+    about: "Про нас",
+    emptyError: "Додайте хоча б одне посилання перед конвертацією.",
+    invalidError: "Некоректні посилання:",
+    copied: "Скопійовано",
+    charsLeft: (n) => `Залишилось ${n} символів`,
+    langButton: "EN",
+  },
+};
+
+let currentLang = localStorage.getItem("lang") || "en";
+
+function applyTranslations(lang) {
+  const dict = translations[lang];
+  if (!dict) return;
+
+  if (dict.metaTitle) {
+    document.title = dict.metaTitle;
+  }
+  if (dict.metaDescription) {
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute("content", dict.metaDescription);
+  }
+
+  const hash = window.location.hash.slice(1);
+  if (heroMessage && !hash && heroMessageDefault) {
+    heroMessage.innerHTML = heroMessageDefault;
+  }
+
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    if (dict[key]) {
+      el.textContent = dict[key];
+    }
+  });
+
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-placeholder");
+    if (dict[key]) {
+      el.setAttribute("placeholder", dict[key]);
+    }
+  });
+
+  if (langToggle) {
+    if (lang === "uk") {
+      langToggle.classList.remove("ua");
+      langToggle.classList.add("en");
+      langToggle.innerHTML = '<span class="flag">🇺🇸</span><span class="lang-code">EN</span>';
+    } else {
+      langToggle.classList.remove("en");
+      langToggle.classList.add("ua");
+      langToggle.innerHTML = '<span class="flag">🇺🇦</span><span class="lang-code">UA</span>';
+    }
+  }
+
+  if (commentCount) {
+    const length = commentInput ? commentInput.value.length : 0;
+    const remaining = Math.max(0, 50 - length);
+    commentCount.textContent = dict.charsLeft(remaining);
+  }
+
+  if (heroMessage && hash) {
+    heroMessage.textContent = dict.sharedHero;
+  }
+
+  document.documentElement.lang = lang === "uk" ? "uk" : "en";
+}
+
+if (langToggle) {
+  langToggle.addEventListener("click", () => {
+    currentLang = currentLang === "en" ? "uk" : "en";
+    localStorage.setItem("lang", currentLang);
+    applyTranslations(currentLang);
+  });
+}
+
+applyTranslations(currentLang);
 
 // Lightweight LZ-based compression to keep share links as short as possible.
 const LZString = (() => {
@@ -481,7 +613,10 @@ function resetBuilder() {
   linksContainer.innerHTML = "";
   linksContainer.appendChild(createRow());
   if (commentInput) commentInput.value = "";
-  if (commentCount) commentCount.textContent = "50 characters left";
+  if (commentCount) {
+    const dict = translations[currentLang] || translations.en;
+    commentCount.textContent = dict.charsLeft(50);
+  }
   updateLimit();
 }
 
@@ -497,24 +632,26 @@ if (commentInput && commentCount) {
   commentInput.addEventListener("input", () => {
     const length = commentInput.value.length;
     const remaining = Math.max(0, 50 - length);
-    commentCount.textContent = `${remaining} characters left`;
+    const dict = translations[currentLang] || translations.en;
+    commentCount.textContent = dict.charsLeft(remaining);
   });
 }
 
 convertButton.addEventListener("click", () => {
   const links = gatherLinks();
-  const comment = commentInput ? commentInput.value.trim().slice(0, 100) : "";
+  const comment = commentInput ? commentInput.value.trim().slice(0, 50) : "";
   resultMessage.textContent = "";
+  const dict = translations[currentLang] || translations.en;
 
   if (links.length === 0) {
-    showResult("", "Please add at least one link before converting.");
+    showResult("", dict.emptyError);
     outputField.value = "";
     return;
   }
 
   const invalid = links.filter((link) => !isValidLink(link));
   if (invalid.length > 0) {
-    showResult("", `These links are invalid: ${invalid.join(", ")}`);
+    showResult("", `${dict.invalidError} ${invalid.join(", ")}`);
     outputField.value = "";
     return;
   }
@@ -523,7 +660,7 @@ convertButton.addEventListener("click", () => {
   const encoded = LZString.compressToEncodedURIComponent(payload);
   const shareable = `${window.location.origin}${window.location.pathname}#${encoded}`;
 
-  showResult(shareable, "Share this link to let anyone see your list.");
+  showResult(shareable, dict.shareMessage);
   history.replaceState(null, "", `#${encoded}`);
 });
 
@@ -534,9 +671,10 @@ copyButton.addEventListener("click", async () => {
 
   try {
     await navigator.clipboard.writeText(outputField.value);
-    copyButton.textContent = "Copied";
+    const dict = translations[currentLang] || translations.en;
+    copyButton.textContent = dict.copied;
     setTimeout(() => {
-      copyButton.textContent = "Copy";
+      copyButton.textContent = dict.copy;
     }, 1600);
   } catch (error) {
     outputField.select();
@@ -563,7 +701,8 @@ function initFromHash() {
     resultSection.classList.add("hidden");
     if (viewerCtaSection) viewerCtaSection.classList.remove("hidden");
     if (heroMessage) {
-      heroMessage.textContent = "Somebody shared some links with you";
+      const dict = translations[currentLang] || translations.en;
+      heroMessage.textContent = dict.sharedHero;
     }
   } catch (error) {
     // If the hash is invalid, ignore it.

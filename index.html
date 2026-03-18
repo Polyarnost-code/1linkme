@@ -8,6 +8,10 @@
       name="description"
       content="Turn up to 8 links into one shareable link. No sign-up, no storage, 100% free. Perfect for creators, marketers, and everyday sharing."
     />
+    <meta
+      name="description-ua"
+      content="Об’єднайте до 8 посилань в одне зручне для поширення. Без реєстрації, без збереження даних, 100% безкоштовно. Ідеально для креаторів, маркетологів і щоденного використання."
+    />
     <meta name="robots" content="index, follow" />
     <meta property="og:title" content="1 Link Me – Combine Multiple Links Into One URL (Free, No Login)" />
     <meta
@@ -40,62 +44,67 @@
         </a>
         <div class="header-text">
           <h1>1 Link Me</h1>
-          <h2>Turn up to 8 links into one shareable link</h2>
+          <h2 data-i18n="heroTitle">Turn up to 8 links into one shareable link</h2>
         </div>
+        <div class="spacer"></div>
+        <button id="lang-toggle" class="btn ghost lang-toggle" type="button">
+          <span class="flag">🇺🇦</span>
+          <span class="lang-code">UA</span>
+        </button>
       </header>
       <header class="hero">
         <p id="hero-message" class="subhead">
-          <span>Paste your links, click convert, and share a single URL.</span>
-          <span>Works forever — no login, no costs.</span>
-          <span class="warning">Note: lost links can’t be recovered.</span>
+          <span data-i18n="heroLine1">Paste your links, click convert, and share a single URL.</span>
+          <span data-i18n="heroLine2">Works forever — no login, no costs.</span>
+          <span class="warning" data-i18n="heroLine3">Note: lost links can’t be recovered.</span>
         </p>
       </header>
 
       <section id="builder" class="card">
         <div class="card-header">
-          <h2>Your links</h2>
-          <span class="limit">0 / 10</span>
+          <h2 data-i18n="linksTitle">Your links</h2>
+          <span class="limit">0 / 8</span>
         </div>
         <div id="links" class="links"></div>
-        <button id="add" class="btn ghost add-link" type="button">Add another link</button>
+        <button id="add" class="btn ghost add-link" type="button" data-i18n="addLink">Add another link</button>
         <div class="comment-header">
-          <label class="comment-label" for="comment">Comments (optional)</label>
+          <label class="comment-label" for="comment" data-i18n="commentLabel">Comments (optional)</label>
           <span id="comment-count" class="comment-count">50 characters left</span>
         </div>
-        <textarea id="comment" class="comment-input" maxlength="50" placeholder="Add a short note (up to 50 characters)"></textarea>
+        <textarea id="comment" class="comment-input" maxlength="50" placeholder="Add a short note (up to 50 characters)" data-i18n-placeholder="commentPlaceholder"></textarea>
         <div class="actions">
-          <button id="convert" class="btn primary" type="button">Convert to one link</button>
+          <button id="convert" class="btn primary" type="button" data-i18n="convert">Convert to one link</button>
         </div>
-        <p class="helper">Only http(s) links are accepted.</p>
+        <p class="helper" data-i18n="helper">Only http(s) links are accepted.</p>
       </section>
 
       <section id="result" class="card hidden">
         <div class="card-header">
-          <h2>Your shareable link</h2>
+          <h2 data-i18n="shareableTitle">Your shareable link</h2>
         </div>
         <div class="result-row">
           <input id="output" type="text" readonly />
-          <button id="copy" class="btn primary" type="button">Copy</button>
+          <button id="copy" class="btn primary" type="button" data-i18n="copy">Copy</button>
         </div>
         <p class="helper result-helper">
           <span id="result-message"></span>
-          <a id="open-link" class="open-link" href="#" target="_blank" rel="noopener noreferrer">Open the link in a new window</a>
+          <a id="open-link" class="open-link" href="#" target="_blank" rel="noopener noreferrer" data-i18n="openLink">Open the link in a new window</a>
         </p>
       </section>
 
       <section id="viewer" class="card hidden">
         <div class="card-header">
-          <h2>Shared links</h2>
+          <h2 data-i18n="sharedTitle">Shared links</h2>
         </div>
         <ol id="shared-list" class="shared-list"></ol>
       </section>
 
       <section id="viewer-cta" class="card hidden">
-        <a class="btn primary viewer-cta" href="index.html">Merge your own links into one sharable link</a>
+        <a class="btn primary viewer-cta" href="index.html" data-i18n="viewerCta">Merge your own links into one sharable link</a>
         <p class="subhead viewer-note">
-          <span>Paste your links, click convert, and share a single URL.</span>
-          <span>Works forever — no login, no costs.</span>
-          <span class="warning">Note: lost links can’t be recovered.</span>
+          <span data-i18n="heroLine1">Paste your links, click convert, and share a single URL.</span>
+          <span data-i18n="heroLine2">Works forever — no login, no costs.</span>
+          <span class="warning" data-i18n="heroLine3">Note: lost links can’t be recovered.</span>
         </p>
       </section>
     </main>
@@ -104,9 +113,9 @@
         <img class="footer-logo" src="logo.png" alt="1 Link Me logo" />
         <span class="footer-year">2026</span>
         <p class="footer-note">Created by Studio 5nines.ai</p>
-        <a href="terms.html">Terms</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="about.html">About</a>
+        <a href="terms.html" data-i18n="terms">Terms</a>
+        <a href="privacy.html" data-i18n="privacy">Privacy</a>
+        <a href="about.html" data-i18n="about">About</a>
       </div>
     </footer>
 

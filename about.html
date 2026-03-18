@@ -8,6 +8,7 @@
       name="description"
       content="About 1 Link Me: a simple, free tool to combine up to 8 links into one shareable URL."
     />
+    <meta name="description-ua" content="Об’єднайте до 8 посилань в одне зручне для поширення. Без реєстрації, без збереження даних, 100% безкоштовно. Ідеально для креаторів, маркетологів і щоденного використання." />
     <meta name="robots" content="index, follow" />
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2YKPZS6ZV8"></script>
@@ -27,12 +28,17 @@
           <img class="logo" src="logo.png" alt="1 Link Me logo" />
         </a>
         <div class="header-text">
-          <h1>About 1 Link Me</h1>
-          <h2>One link to share them all</h2>
+          <h1 data-i18n="aboutTitle">About 1 Link Me</h1>
+          <h2 data-i18n="aboutTagline">One link to share them all</h2>
         </div>
+        <div class="spacer"></div>
+        <button id="lang-toggle" class="btn ghost lang-toggle" type="button">
+          <span class="flag">🇺🇦</span>
+          <span class="lang-code">UA</span>
+        </button>
       </header>
 
-      <section class="card">
+      <section class="card about-content" data-lang="en">
         <p>
           In a world where we constantly share content—websites, social profiles, articles, tools, and resources—
           sending multiple links can quickly become messy and overwhelming.
@@ -134,6 +140,110 @@
           Create your first multi-link in seconds and experience a smarter way to share.
           <a href="index.html">1 Link Me — One link to share them all</a>
         </p>
+        <p>Contact: kleoqwer@yahoo.com</p>
+      </section>
+
+      <section class="card about-content hidden" data-lang="uk">
+        <p>
+          У світі, де ми постійно ділимось контентом — сайтами, соцмережами, статтями, інструментами та ресурсами —
+          надсилання багатьох посилань швидко стає хаотичним.
+          1 Link Me — це простий безкоштовний сервіс, який перетворює до 8 посилань на одне чисте й зручне посилання.
+        </p>
+
+        <h2>Що таке 1 Link Me?</h2>
+        <p>
+          1 Link Me — легкий інструмент без входу, який дозволяє обʼєднати кілька посилань в одне.
+          Замість довгого списку URL ви ділитесь одним лінком — зручно для повідомлень, соцмереж, листів чи будь-де,
+          де важлива простота.
+        </p>
+        <p>
+          Вставте посилання → Натисніть «Конвертувати» → Поділіться одним лінком. Без реєстрації. Без оплати. Без складнощів.
+        </p>
+
+        <h2>Чому ми створили 1 Link Me</h2>
+        <p>
+          Ділитися кількома посиланнями не повинно бути складно. Це зручно для:\n        </p>
+        <ul>
+          <li>креаторів, які діляться контентом</li>
+          <li>бізнесів, що надсилають ресурси</li>
+          <li>викладачів, які організовують матеріали</li>
+          <li>або просто людей, які надсилають корисні посилання друзям</li>
+        </ul>
+        <p>
+          Ви заслуговуєте на швидкий і простий спосіб ділитися всім одразу. 1 Link Me створено, щоб прибрати зайве
+          й заощадити час.
+        </p>
+
+        <h2>Як це працює</h2>
+        <p>
+          На відміну від традиційних сервісів, 1 Link Me не зберігає ваші дані на сервері.
+        </p>
+        <ul>
+          <li>Ваші посилання кодуються прямо в URL</li>
+          <li>Коли хтось відкриває його, сторінка читає дані й показує список посилань</li>
+          <li>Без бекенду. Без бази даних.</li>
+        </ul>
+        <p>
+          Це робить сервіс швидким, приватним і простим.
+        </p>
+
+        <h2>Приватність у пріоритеті</h2>
+        <p>
+          Ми віримо в простоту — і приватність.
+        </p>
+        <ul>
+          <li>Ми не зберігаємо ваші посилання на серверах</li>
+          <li>Немає акаунтів</li>
+          <li>Ваші дані існують лише в згенерованому посиланні</li>
+        </ul>
+        <p>
+          Важливо: через відсутність зберігання, втрачені посилання не можна відновити. Збережіть згенерований URL.
+        </p>
+
+        <h2>Ключові можливості</h2>
+        <ul>
+          <li>Обʼєднання до 8 посилань в один URL</li>
+          <li>Без входу або акаунта</li>
+          <li>Повністю безкоштовно</li>
+          <li>Миттєве створення посилання</li>
+          <li>Чистий і зручний вигляд</li>
+          <li>Створіть власний список зі сторінки спільного посилання</li>
+          <li>Працює на всіх пристроях</li>
+        </ul>
+
+        <h2>Для кого це?</h2>
+        <p>1 Link Me ідеально підходить для:</p>
+        <ul>
+          <li>креаторів та інфлюенсерів</li>
+          <li>маркетологів і малого бізнесу</li>
+          <li>вчителів та освітян</li>
+          <li>розробників і продукт‑команд</li>
+          <li>усіх, хто хоче легко ділитися кількома посиланнями</li>
+        </ul>
+
+        <h2>Чим 1 Link Me відрізняється?</h2>
+        <p>Більшість сервісів вимагають:</p>
+        <ul>
+          <li>акаунтів</li>
+          <li>панелей керування</li>
+          <li>збереження даних</li>
+          <li>передплат</li>
+        </ul>
+        <p>
+          1 Link Me прибирає все зайве. Без тертя. Без зобовʼязань. Просто одне посилання, яке робить усе.
+        </p>
+
+        <h2>Наша місія</h2>
+        <p>
+          Зробити поширення посилань простішим, швидшим і доступнішим для всіх — без шкоди для приватності та зручності.
+        </p>
+
+        <h2>Спробуйте зараз</h2>
+        <p>
+          Створіть свій перший мульти‑лінк за секунди та відчуйте розумніший спосіб ділитися.
+          <a href="index.html">1 Link Me — Одне посилання для всього</a>
+        </p>
+        <p>Контакт: kleoqwer@yahoo.com</p>
       </section>
     </main>
 
@@ -142,10 +252,11 @@
         <img class="footer-logo" src="logo.png" alt="1 Link Me logo" />
         <span class="footer-year">2026</span>
         <p class="footer-note">Created by Studio 5nines.ai</p>
-        <a href="terms.html">Terms</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="about.html">About</a>
+        <a href="terms.html" data-i18n="terms">Terms</a>
+        <a href="privacy.html" data-i18n="privacy">Privacy</a>
+        <a href="about.html" data-i18n="about">About</a>
       </div>
     </footer>
+    <script src="about.js"></script>
   </body>
 </html>
