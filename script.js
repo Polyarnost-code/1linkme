@@ -17,6 +17,7 @@ const heroMessage = document.getElementById("hero-message");
 const heroMessageDefault = heroMessage ? heroMessage.innerHTML : "";
 const commentCount = document.getElementById("comment-count");
 const langToggle = document.getElementById("lang-toggle");
+const ADS_CONVERSION_ID = "AW-18059416682/NDe-CPeV3JQcEOqos6ND";
 
 const translations = {
   en: {
@@ -586,6 +587,16 @@ function showResult(link, message) {
   if (openLink) openLink.href = link || "#";
 }
 
+function trackAdsConversion() {
+  if (typeof window.gtag !== "function") {
+    return;
+  }
+
+  window.gtag("event", "conversion", {
+    send_to: ADS_CONVERSION_ID,
+  });
+}
+
 function showViewer(links, comment) {
   sharedList.innerHTML = "";
   const existing = viewerSection.querySelector(".shared-comment");
@@ -661,6 +672,7 @@ convertButton.addEventListener("click", () => {
   const shareable = `${window.location.origin}${window.location.pathname}#${encoded}`;
 
   showResult(shareable, dict.shareMessage);
+  trackAdsConversion();
   history.replaceState(null, "", `#${encoded}`);
 });
 
